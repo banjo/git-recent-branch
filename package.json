@@ -1,7 +1,7 @@
 {
     "name": "git-recent",
     "type": "module",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "private": false,
     "description": "",
     "author": "Anton Ödman <anton.odman@gmail.com>",
