@@ -21,7 +21,7 @@ if (showHelp) {
 }
 
 (async () => {
-    intro(`Select the branch you want to checkout!`);
+    intro(`Checkout one of your most recent branches ✅`);
 
     const { stdout: branches } = await execa("git", [
         "for-each-ref",
