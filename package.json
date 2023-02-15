@@ -1,24 +1,24 @@
 {
-    "name": "git-recent",
+    "name": "git-recent-branch",
     "type": "module",
     "version": "0.0.1",
     "private": false,
     "description": "",
     "author": "Anton Ödman <anton.odman@gmail.com>",
     "license": "MIT",
-    "homepage": "https://github.com/banjo/git-recent#readme",
+    "homepage": "https://github.com/banjo/git-recent-branch#readme",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/banjo/git-recent.git"
+        "url": "git+https://github.com/banjo/git-recent-branch.git"
     },
-    "bugs": "https://github.com/banjo/git-recent/issues",
+    "bugs": "https://github.com/banjo/git-recent-branch/issues",
     "keywords": [],
     "sideEffects": false,
     "main": "dist/index.js",
     "module": "dist/index.js",
     "types": "dist/index.d.ts",
     "bin": {
-        "git-recent": "dist/index.js"
+        "git-recent-branch": "dist/index.js"
     },
     "exports": {
         ".": {

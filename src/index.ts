@@ -8,7 +8,7 @@ const argv = minimist(process.argv.slice(2));
 const showHelp = argv._.some((arg) => ["-h", "--help"].includes(arg));
 const count = (argv.count || argv.c) ?? 5;
 
-const helpMessage = `Usage: git-recent [options]
+const helpMessage = `Usage: git-recent-branch [options]
 
 Options:
 -h, --help      Show this help message
