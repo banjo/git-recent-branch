@@ -54,7 +54,13 @@ if (showHelp) {
         process.exit(0);
     }
 
-    execa("git", ["checkout", branch]).stdout?.pipe(process.stdout);
+    try {
+        const { stdout, stderr } = await execa("git", ["checkout", branch]);
+    } catch (error: any) {
+        outro(`Could not checkout branch: ${branch}`);
+        console.log(error.stderr);
+        process.exit(0);
+    }
 
     outro(`Branch ${branch} checked out!`);
 })();
