@@ -40,8 +40,7 @@
         "test": "vitest --watch=false",
         "test:dev": "vitest",
         "typecheck": "tsc --noEmit",
-        "format": "npx prettier --write .",
-        "prepare": "husky install"
+        "format": "npx prettier --write ."
     },
     "devDependencies": {
         "@antfu/ni": "^0.19.0",
