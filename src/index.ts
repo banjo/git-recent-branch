@@ -20,16 +20,28 @@ if (showHelp) {
     process.exit(0);
 }
 
-(async () => {
-    intro(`Checkout one of your most recent branches ✅`);
+async function main() {
+    let branches = "";
+    try {
+        const { stdout } = await execa("git", [
+            "for-each-ref",
+            `--count=${count}`,
+            "--sort=-committerdate",
+            "refs/heads",
+            "--format='%(authordate:short) %(color:red)%(objectname:short) %(color:yellow)%(refname:short)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset))'",
+        ]);
+        branches = stdout;
+    } catch (error: any) {
+        if (error.stderr.includes("not a git repository")) {
+            outro("This is not a git repository 🤷");
+            process.exit(0);
+        } else {
+            console.log(error.stderr);
+            process.exit(0);
+        }
+    }
 
-    const { stdout: branches } = await execa("git", [
-        "for-each-ref",
-        `--count=${count}`,
-        "--sort=-committerdate",
-        "refs/heads",
-        "--format='%(authordate:short) %(color:red)%(objectname:short) %(color:yellow)%(refname:short)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset))'",
-    ]);
+    intro(`Checkout one of your most recent branches`);
 
     let options = [];
     for (let branch of branches.split("\n")) {
@@ -55,12 +67,15 @@ if (showHelp) {
     }
 
     try {
-        const { stdout, stderr } = await execa("git", ["checkout", branch]);
+        await execa("git", ["checkout", branch]);
     } catch (error: any) {
-        outro(`Could not checkout branch: ${branch}`);
+        outro(`Could not checkout branch: ${branch} ❌`);
+
         console.log(error.stderr);
         process.exit(0);
     }
 
-    outro(`Branch ${branch} checked out!`);
-})();
+    outro(`Branch ${branch} checked out! ✅`);
+}
+
+main().catch(console.error);
