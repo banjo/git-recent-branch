@@ -3,6 +3,7 @@
 import { cancel, intro, isCancel, outro, select } from "@clack/prompts";
 import { execa } from "execa";
 import minimist from "minimist";
+import pc from "picocolors";
 
 const argv = minimist(process.argv.slice(2));
 const showHelp = argv._.some((arg) => ["-h", "--help"].includes(arg));
@@ -51,7 +52,7 @@ async function main() {
 
         options.push({
             value: name,
-            label: `${name} - ${time}`,
+            label: `${pc.green(name)} - ${time}`,
             hint: `${hash}`,
         });
     }
@@ -75,7 +76,7 @@ async function main() {
         process.exit(0);
     }
 
-    outro(`Branch ${branch} checked out! ✅`);
+    outro(`Branch ${pc.green(branch)} checked out! ✅`);
 }
 
 main().catch(console.error);

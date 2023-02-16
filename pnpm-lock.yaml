@@ -12,6 +12,7 @@ specifiers:
   execa: ^7.0.0
   husky: ^8.0.3
   minimist: ^1.2.8
+  picocolors: ^1.0.0
   pnpm: ^7.26.1
   prettier: ^2.8.3
   tsup: ^6.5.0
@@ -23,6 +24,7 @@ dependencies:
   '@clack/prompts': 0.2.2
   execa: 7.0.0
   minimist: 1.2.8
+  picocolors: 1.0.0
 
 devDependencies:
   '@antfu/ni': 0.19.0

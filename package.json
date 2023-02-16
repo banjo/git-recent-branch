@@ -62,6 +62,7 @@
     "dependencies": {
         "@clack/prompts": "^0.2.2",
         "execa": "^7.0.0",
-        "minimist": "^1.2.8"
+        "minimist": "^1.2.8",
+        "picocolors": "^1.0.0"
     }
 }
