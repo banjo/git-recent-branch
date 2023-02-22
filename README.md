@@ -2,10 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/git-recent-branch?color=%23c53635&label=%20)](https://www.npmjs.com/package/git-recent-branch)
 
-
-<div align="center">
-  <img src="https://s3.gifyu.com/images/git-recent-branch-video.gif" alt="git-recent-branch cli in action" />
-</div>
+![Git recent branch in action](.github/assets/git-recent-branch.png)
 
 
 
