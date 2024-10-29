@@ -59,7 +59,7 @@
         "vitest": "^0.28.3"
     },
     "dependencies": {
-        "@clack/prompts": "^0.2.2",
+        "@inquirer/prompts": "^7.0.1",
         "execa": "^7.0.0",
         "minimist": "^1.2.8",
         "picocolors": "^1.0.0"
