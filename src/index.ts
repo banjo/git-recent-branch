@@ -68,7 +68,7 @@ async function main() {
     }
 
     try {
-        await execa("git", ["checkout", branch]);
+        await execa("git", ["checkout", branch], { stdio: "ignore" });
     } catch (error: any) {
         outro(`Could not checkout branch: ${branch} ❌`);
 
