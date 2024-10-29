@@ -88,6 +88,8 @@ const main = async () => {
         console.log(`\n❌ Could not checkout branch: ${pc.green(branch)}`);
         process.exit(0);
     }
+
+    console.log(`\n✅ Successfully checked out branch: ${pc.green(branch)}`);
 };
 
 main().catch(console.error);
