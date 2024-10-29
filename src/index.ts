@@ -21,7 +21,16 @@ if (showHelp) {
     process.exit(0);
 }
 
-async function main() {
+const currentBranch = async () => {
+    try {
+        const { stdout } = await execa("git", ["branch", "--show-current"]);
+        return stdout;
+    } catch (error: any) {
+        return "";
+    }
+};
+
+const main = async () => {
     let branches = "";
     try {
         const { stdout } = await execa("git", [
@@ -42,6 +51,8 @@ async function main() {
         }
     }
 
+    const current = await currentBranch();
+
     intro(`Checkout one of your most recent branches`);
 
     let options = [];
@@ -49,6 +60,10 @@ async function main() {
         branch = branch.replace(/'/g, "");
         const time = new RegExp(/\(([^)]+)\)/).exec(branch)?.[1];
         const [date, hash, name] = branch.split(" ");
+
+        if (name === current) {
+            continue;
+        }
 
         options.push({
             value: name,
